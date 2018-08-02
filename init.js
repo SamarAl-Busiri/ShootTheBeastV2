@@ -49,6 +49,7 @@ window.onload = function () {
     context.canvas.width = WIDTH;
     context.canvas.height = HEIGHT;
     stage = new createjs.Stage("myCanvas");
+    buildStartMenu();
 
     //Setup Asset Queue
     queue = new createjs.LoadQueue(false);
@@ -86,7 +87,23 @@ window.onload = function () {
    /* _RestartButton = new objects.Button("RestartButton", 160, 382, false);
     _RestartButton.on("click", , this);
     this.addChild(this._RestartButton);*/
-    queue.load();
+    
+    buildStartMenu.load();
+
+    function buildStartMenu() {
+        //var button = new createjs.Sprite(spriteSheet, 'button')
+       /* var button = new SimpleButton('PLAY GAME');
+        button.regX = button.width / 2;
+        button.regY = button.height / 2;
+        button.x = canvas.width / 2;
+        button.y = canvas.height / 2;
+        button.on('click', queue.load());
+        stage.addChild(button);
+        stage.update();*/
+    }
+
+
+    //queue.load();
 
     //Create Timer
     gameTimer = setInterval(updateTime, 1000);
@@ -359,14 +376,7 @@ function batDeath() {
     deathAnimation.gotoAndPlay("die");
     stage.addChild(deathAnimation);
 }
-SlotMachine.prototype._resetButtonClick = function (event) {
-    console.log("Reset game");
-        this._creditsText.text = "1000";
-    this._betText.text = "0";
-    this._resultText.text ="0";
-    this._jackpotText.text ="5000";
-    this._resetAll();
-};
+
 
 function tickEvent() {
 
